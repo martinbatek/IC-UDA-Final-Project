@@ -465,3 +465,5 @@ cython_debug/
 # Specific directories for UDA Final project
 ## Unused explored Datasets
 /data/DataCluster Fire and Smoke Dataset
+/data/Wildfire Dataset
+/data/Kaggle FIRE Dataset
