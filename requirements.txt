@@ -8,19 +8,22 @@ asynctest==0.13.0
 attrs @ file:///C:/b/abs_09s3y775ra/croot/attrs_1668696195628/work
 backcall @ file:///home/ktietz/src/ci/backcall_1611930011877/work
 blinker==1.4
+Bottleneck @ file:///C:/Windows/Temp/abs_3198ca53-903d-42fd-87b4-03e6d03a8381yfwsuve8/croots/recipe/bottleneck_1657175565403/work
 brotlipy==0.7.0
 cachetools @ file:///tmp/build/80754af9/cachetools_1619597386817/work
-certifi @ file:///C:/b/abs_85o_6fm0se/croot/certifi_1671487778835/work/certifi
+certifi @ file:///home/conda/feedstock_root/build_artifacts/certifi_1700303426725/work/certifi
 cffi @ file:///C:/b/abs_49n3v2hyhr/croot/cffi_1670423218144/work
 charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
 click @ file:///C:/ci/click_1646038601470/work
 cloudpickle @ file:///tmp/build/80754af9/cloudpickle_1632508026186/work
 colorama @ file:///tmp/build/80754af9/colorama_1607707115595/work
-cryptography @ file:///C:/b/abs_8ecplyc3n2/croot/cryptography_1677533105000/work
+cryptography @ file:///D:/bld/cryptography_1666563584497/work
 cycler @ file:///tmp/build/80754af9/cycler_1637851556182/work
 cytoolz @ file:///C:/b/abs_61m9vzb4qh/croot/cytoolz_1667465938275/work
 dask @ file:///tmp/build/80754af9/dask-core_1615055117017/work
+debugpy @ file:///D:/bld/debugpy_1660619187469/work
 decorator @ file:///opt/conda/conda-bld/decorator_1643638310831/work
+entrypoints @ file:///home/conda/feedstock_root/build_artifacts/entrypoints_1643888246732/work
 fonttools==4.25.0
 frozenlist @ file:///C:/b/abs_2bb5uzghsi/croot/frozenlist_1670004511812/work
 future @ file:///C:/b/abs_3dcibf18zi/croot/future_1677599891380/work
@@ -28,15 +31,18 @@ gast==0.3.3
 google-auth @ file:///opt/conda/conda-bld/google-auth_1646735974934/work
 google-auth-oauthlib @ file:///tmp/build/80754af9/google-auth-oauthlib_1617120569401/work
 google-pasta @ file:///Users/ktietz/demo/mc3/conda-bld/google-pasta_1630577991354/work
-grpcio @ file:///C:/ci/grpcio_1637590993074/work
+grpcio @ file:///D:/bld/grpc-split_1662408320676/work
 h5py==2.10.0
 idna @ file:///C:/b/abs_bdhbebrioa/croot/idna_1666125572046/work
 imagecodecs @ file:///C:/b/abs_f0cr12h73p/croot/imagecodecs_1677576746499/work
 imageio @ file:///C:/Windows/TEMP/abs_24c1b783-7540-4ca9-a1b1-0e8aa8e6ae64hb79ssux/croots/recipe/imageio_1658785038775/work
 importlib-metadata @ file:///C:/ci/importlib-metadata_1648562631189/work
+ipykernel @ file:///D:/bld/ipykernel_1666723449132/work
 ipython @ file:///C:/Windows/TEMP/abs_45b5zb1l7q/croots/recipe/ipython_1659529855872/work
 ipython-genutils @ file:///tmp/build/80754af9/ipython_genutils_1606773439826/work
 jedi @ file:///C:/ci/jedi_1644297241925/work
+jupyter_client @ file:///home/conda/feedstock_root/build_artifacts/jupyter_client_1673615989977/work
+jupyter_core @ file:///D:/bld/jupyter_core_1658332454038/work
 Keras @ file:///Users/ktietz/demo/mc3/conda-bld/keras_split_1630579936814/work
 Keras-Applications @ file:///tmp/build/80754af9/keras-applications_1594366238411/work
 Keras-Preprocessing @ file:///tmp/build/80754af9/keras-preprocessing_1612283640596/work
@@ -50,18 +56,22 @@ mkl-random @ file:///C:/ci/mkl_random_1626186163140/work
 mkl-service==2.4.0
 multidict @ file:///C:/b/abs_6cx_8w3cv2/croot/multidict_1665674238352/work
 munkres==1.1.4
+nest-asyncio @ file:///home/conda/feedstock_root/build_artifacts/nest-asyncio_1697083700168/work
 networkx @ file:///tmp/build/80754af9/networkx_1598376031484/work
+numexpr @ file:///C:/b/abs_a7kbak88hk/croot/numexpr_1668713882979/work
 numpy @ file:///C:/ci/numpy_and_numpy_base_1653574840943/work
 oauthlib @ file:///C:/b/abs_2eoymqc2ow/croot/oauthlib_1665490906043/work
 olefile @ file:///Users/ktietz/demo/mc3/conda-bld/olefile_1629805411829/work
 opt-einsum @ file:///tmp/build/80754af9/opt_einsum_1621500238896/work
 packaging @ file:///C:/b/abs_cfsup8ur87/croot/packaging_1671697442297/work
+pandas @ file:///C:/ci/pandas_1641461312795/work
 parso @ file:///opt/conda/conda-bld/parso_1641458642106/work
 pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
 Pillow==9.4.0
 ply==3.11
 prompt-toolkit @ file:///tmp/build/80754af9/prompt-toolkit_1633440160888/work
 protobuf==3.20.3
+psutil @ file:///D:/bld/psutil_1666155596250/work
 pyasn1 @ file:///Users/ktietz/demo/mc3/conda-bld/pyasn1_1629708007385/work
 pyasn1-modules==0.2.8
 pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
@@ -74,8 +84,11 @@ PyQt5-sip @ file:///C:/Windows/Temp/abs_d7gmd2jg8i/croots/recipe/pyqt-split_1659
 pyreadline==2.1
 PySocks @ file:///C:/ci/pysocks_1594394709107/work
 python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+pytz @ file:///C:/b/abs_22fofvpn1x/croot/pytz_1671698059864/work
 PyWavelets @ file:///C:/ci/pywavelets_1648728036674/work
+pywin32==303
 PyYAML==6.0
+pyzmq @ file:///D:/bld/pyzmq_1663830622471/work
 requests @ file:///C:/ci/requests_1657735288441/work
 requests-oauthlib==1.3.0
 rsa @ file:///tmp/build/80754af9/rsa_1614366226499/work
