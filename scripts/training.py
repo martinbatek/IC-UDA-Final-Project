@@ -23,6 +23,7 @@ from tensorflow.keras import layers
 from config import new_size
 from plotdata import plot_training
 from config import Config_classification
+from config import root_path
 
 #########################################################
 # Global parameters and definition
@@ -67,8 +68,8 @@ def train_keras():
     # https://keras.io/examples/vision/image_classification_from_scratch/
     print(" --------- Training --------- ")
 
-    dir_fire = 'frames/Training/Fire/'
-    dir_no_fire = 'frames/Training/No_Fire/'
+    dir_fire = root_path+'Training/Fire/'
+    dir_no_fire = root_path+'Training/No_Fire/'
 
     # 0 is Fire and 1 is NO_Fire
     fire = len([name for name in os.listdir(dir_fire) if os.path.isfile(os.path.join(dir_fire, name))])
@@ -81,13 +82,15 @@ def train_keras():
     print("Weight for class fire : {:.2f}".format(weight_for_fire))
     print("Weight for class No_fire : {:.2f}".format(weight_for_no_fire))
 
+    train_path = root_path + 'Training'
+
     train_ds = tf.keras.preprocessing.image_dataset_from_directory(
-        "frames/Training", validation_split=0.2, subset="training", seed=1337, image_size=image_size,
+        train_path, validation_split=0.2, subset="training", seed=1337, image_size=image_size,
         batch_size=batch_size, shuffle=True
     )
 
     val_ds = tf.keras.preprocessing.image_dataset_from_directory(
-        "frames/Training", validation_split=0.2, subset="validation", seed=1337, image_size=image_size,
+        train_path, validation_split=0.2, subset="validation", seed=1337, image_size=image_size,
         batch_size=batch_size, shuffle=True
     )
 
@@ -120,14 +123,14 @@ def train_keras():
     layers_len = len(model.layers)
 
     if save_model_flag:
-        file_model_fire = 'Output/Models/model_fire_resnet_weighted_40_no_metric_simple'
+        file_model_fire = '../models/model_fire_resnet_weighted_40_no_metric_simple'
         model.save(file_model_fire)
     if Config_classification.get('TrainingPlot'):
         plot_training(res_fire, 'KerasModel', layers_len)
 
     # Prediction on one sample frame from the test set
     img = keras.preprocessing.image.load_img(
-        "frames/Training/Fire/resized_frame1801.jpg", target_size=image_size)
+        root_path+"Training/Fire/resized_frame1801.jpg", target_size=image_size)
     img_array = keras.preprocessing.image.img_to_array(img)
     img_array = tf.expand_dims(img_array, 0)
     predictions = model.predict(img_array)

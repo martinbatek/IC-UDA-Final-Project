@@ -3,19 +3,21 @@
 # Configuration File
 #################################
 """
-pathVid_fire = 'video/2020_01_16_10_27_15.mp4'
-pathVid_LakeMary = 'video/Matrice 200_phone_lakemary_X4S/Final.mp4'
-pathVid_test_Fire = 'video/Testdata/fire.mp4'
-pathVid_test_NoFire = 'video/Testdata/No_fire.mp4'
+#pathVid_fire = 'video/2020_01_16_10_27_15.mp4'
+#pathVid_LakeMary = 'video/Matrice 200_phone_lakemary_X4S/Final.mp4'
+#pathVid_test_Fire = 'video/Testdata/fire.mp4'
+#pathVid_test_NoFire = 'video/Testdata/No_fire.mp4'
 
-pathFrame_all = 'frames/all'
-pathFrame_resize = 'frames/resize'
+#pathFrame_all = 'frames/all'
+#pathFrame_resize = 'frames/resize'
 
-pathFrame_lakemary = 'frames/lakemary'
-pathFrame_resize_lakemary = 'frames/resize_lakemary'
+#pathFrame_lakemary = 'frames/lakemary'
+#pathFrame_resize_lakemary = 'frames/resize_lakemary'
 
-pathFrame_test = 'frames/Test_frame/'
-pathFrame_resize_test = 'frames/Test/'
+root_path = '../data/FLAME Dataset - Shamsoshoara/'
+
+#pathFrame_test = 'frames/Test_frame/'
+pathFrame_resize_test = root_path + 'Test/'
 
 Flags = {'playVideoFlag': True, 'SaveRawFrameFlag': False, 'ResizeFlag': False, 'plot_center': True,
          'Debug_print': False}

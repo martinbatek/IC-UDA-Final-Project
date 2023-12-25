@@ -43,8 +43,8 @@ def plot_training(result, type_model, layers_len):
     ax[1].grid(True)
     ax[1].legend(prop={'size': 14, 'weight': 'bold'}, loc='best')
     ax[1].tick_params(axis='both', which='major', labelsize=15)
-    file_figobj = 'Output/FigureObject/%s_%d_EPOCH_%d_layers_opt.fig.pickle' % (type_model, epochs, layers_len)
-    file_pdf = 'Output/Figures/%s_%d_EPOCH_%d_layers_opt.pdf' % (type_model, epochs, layers_len)
+    file_figobj = '../figures/%s_%d_EPOCH_%d_layers_opt.fig.pickle' % (type_model, epochs, layers_len)
+    file_pdf = '../figures/%s_%d_EPOCH_%d_layers_opt.pdf' % (type_model, epochs, layers_len)
 
     pickle.dump(fig, open(file_figobj, 'wb'))
     fig.savefig(file_pdf, bbox_inches='tight')
@@ -68,8 +68,8 @@ def plot_metrics(history):
         ax[n].legend(prop={'size': 14, 'weight': 'bold'}, loc='best')
         ax[n].tick_params(axis='both', which='major', labelsize=15)
 
-    file_figobj = 'Output/FigureObject/Metric_%d_EPOCH.fig.pickle' % epochs
-    file_pdf = 'Output/Figures/Metric_%d_EPOCH.pdf' % epochs
+    file_figobj = '../figures/Metric_%d_EPOCH.fig.pickle' % epochs
+    file_pdf = '../figures/Metric_%d_EPOCH.pdf' % epochs
 
     pickle.dump(fig, open(file_figobj, 'wb'))
     fig.savefig(file_pdf, bbox_inches='tight')
@@ -103,7 +103,7 @@ def plot_confusion_matrix(cm, classes, normalize=False, title='Confusion matrix'
     plt.ylabel('True label', size=12, fontweight='bold')
     plt.xlabel('Predicted label', size=12, fontweight='bold')
     # file_pdf = 'Output/Figures/confusion_matrix.pdf'
-    file_figobj = 'Output/FigureObject/confusion_matrix.fig.pickle'
+    file_figobj = '../figures/confusion_matrix.fig.pickle'
     pickle.dump(fig_conf, open(file_figobj, 'wb'))
 
 
@@ -141,8 +141,8 @@ def plot_scheduling():
     ax.legend(loc='best')
     fig.canvas.draw()
 
-    file_figobj = 'Output/FigureObject/required_UAV.fig.pickle' % ()
-    file_pdf = 'Output/Figures/required_UAV.pdf' % ()
+    file_figobj = '../figures/required_UAV.fig.pickle' % ()
+    file_pdf = '../figures/required_UAV.pdf' % ()
     pickle.dump(fig, open(file_figobj, 'wb'))
     fig.savefig(file_pdf, bbox_inches='tight')
 
@@ -182,8 +182,8 @@ def plot_interval(pile_times):
     ax.legend(loc='best')
     fig.canvas.draw()
 
-    file_figobj = 'Output/FigureObject/Consecutive_interval.fig.pickle' % ()
-    file_pdf = 'Output/Figures/Consecutive_interval.pdf' % ()
+    file_figobj = '../figures/Consecutive_interval.fig.pickle' % ()
+    file_pdf = '../figures/Consecutive_interval.pdf' % ()
     pickle.dump(fig, open(file_figobj, 'wb'))
     fig.savefig(file_pdf, bbox_inches='tight')
 
@@ -210,7 +210,7 @@ def plot_segmentation_test(xval, yval, ypred, num_samples):
         plt.title('Mask')
         plt.axis('off')
     plt.subplots_adjust(wspace=0.05, hspace=0.1)
-    file_figobj = 'Output/FigureObject/segmentation_test.fig.pickle' % ()
-    file_pdf = 'Output/Figures/segmentation_test.pdf' % ()
+    file_figobj = '../figures/segmentation_test.fig.pickle' % ()
+    file_pdf = '../figures/segmentation_test.pdf' % ()
     pickle.dump(fig, open(file_figobj, 'wb'))
     fig.savefig(file_pdf, bbox_inches='tight')
