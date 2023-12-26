@@ -49,22 +49,22 @@ Keras-Preprocessing @ file:///tmp/build/80754af9/keras-preprocessing_16122836405
 kiwisolver @ file:///C:/b/abs_88mdhvtahm/croot/kiwisolver_1672387921783/work
 Markdown @ file:///C:/b/abs_98lv_ucina/croot/markdown_1671541919225/work
 MarkupSafe @ file:///C:/ci/markupsafe_1654508076077/work
-matplotlib @ file:///C:/b/abs_ae02atcfur/croot/matplotlib-suite_1667356722968/work
+matplotlib @ file:///D:/bld/matplotlib-suite_1639359207070/work
 matplotlib-inline @ file:///C:/ci/matplotlib-inline_1661934089728/work
-mkl-fft==1.3.1
-mkl-random @ file:///C:/ci/mkl_random_1626186163140/work
-mkl-service==2.4.0
+mkl-fft==1.3.0
+mkl-random==1.1.0
+mkl-service==2.3.0
 multidict @ file:///C:/b/abs_6cx_8w3cv2/croot/multidict_1665674238352/work
 munkres==1.1.4
 nest-asyncio @ file:///home/conda/feedstock_root/build_artifacts/nest-asyncio_1697083700168/work
 networkx @ file:///tmp/build/80754af9/networkx_1598376031484/work
-numexpr @ file:///C:/b/abs_a7kbak88hk/croot/numexpr_1668713882979/work
-numpy @ file:///C:/ci/numpy_and_numpy_base_1653574840943/work
+numexpr @ file:///C:/ci/numexpr_1614798720432/work
+numpy @ file:///D:/bld/numpy_1594931896947/work
 oauthlib @ file:///C:/b/abs_2eoymqc2ow/croot/oauthlib_1665490906043/work
 olefile @ file:///Users/ktietz/demo/mc3/conda-bld/olefile_1629805411829/work
 opt-einsum @ file:///tmp/build/80754af9/opt_einsum_1621500238896/work
 packaging @ file:///C:/b/abs_cfsup8ur87/croot/packaging_1671697442297/work
-pandas @ file:///C:/ci/pandas_1641461312795/work
+pandas @ file:///C:/ci/pandas_1618264472954/work
 parso @ file:///opt/conda/conda-bld/parso_1641458642106/work
 pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
 Pillow==9.4.0
@@ -92,8 +92,8 @@ pyzmq @ file:///D:/bld/pyzmq_1663830622471/work
 requests @ file:///C:/ci/requests_1657735288441/work
 requests-oauthlib==1.3.0
 rsa @ file:///tmp/build/80754af9/rsa_1614366226499/work
-scikit-image @ file:///C:/b/abs_63r0vmx78u/croot/scikit-image_1669241746873/work
-scipy @ file:///C:/ci/scipy_1661333074914/work
+scikit-image @ file:///C:/ci/scikit-image_1648196140109/work
+scipy @ file:///C:/ci/scipy_1616703425152/work
 sip @ file:///C:/Windows/Temp/abs_b8fxd17m2u/croots/recipe/sip_1659012372737/work
 six @ file:///tmp/build/80754af9/six_1644875935023/work
 tensorboard @ file:///C:/Users/builder/adipietro/mc3/tf210/conda-bld/tensorboard_1669760968711/work/tensorboard-2.10.0-py3-none-any.whl
@@ -105,9 +105,9 @@ termcolor @ file:///C:/b/abs_16qe7jhw7n/croot/termcolor_1668084642458/work
 tifffile @ file:///tmp/build/80754af9/tifffile_1627275862826/work
 toml @ file:///tmp/build/80754af9/toml_1616166611790/work
 toolz @ file:///tmp/build/80754af9/toolz_1636545406491/work
-torch==1.12.1
-torchaudio==0.12.1
-torchvision @ file:///C:/b/abs_88nq4vr9ec/croot/torchvision_1670313558208/work
+torch @ file:///C:/ci/pytorch_1596721630134/work
+torchaudio==0.6.0
+torchvision==0.7.0
 tornado @ file:///C:/ci/tornado_1662476933490/work
 tqdm @ file:///opt/conda/conda-bld/tqdm_1647339053476/work
 traitlets @ file:///C:/b/abs_e5m_xjjl94/croot/traitlets_1671143896266/work
