@@ -130,7 +130,7 @@ def train_keras():
 
     # Prediction on one sample frame from the test set
     img = keras.preprocessing.image.load_img(
-        root_path+"Training/Fire/resized_frame1801.jpg", target_size=image_size)
+        root_path+"Test/Fire/resized_test_fire_frame408.jpg", target_size=image_size)
     img_array = keras.preprocessing.image.img_to_array(img)
     img_array = tf.expand_dims(img_array, 0)
     predictions = model.predict(img_array)

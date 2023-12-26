@@ -14,7 +14,7 @@
 #pathFrame_lakemary = 'frames/lakemary'
 #pathFrame_resize_lakemary = 'frames/resize_lakemary'
 
-root_path = '../data/FLAME Dataset - Shamsoshoara/'
+root_path = '../data/FLAME_Dataset_subset/'
 
 #pathFrame_test = 'frames/Test_frame/'
 pathFrame_resize_test = root_path + 'Test/'
@@ -23,7 +23,7 @@ Flags = {'playVideoFlag': True, 'SaveRawFrameFlag': False, 'ResizeFlag': False, 
          'Debug_print': False}
 new_size = {'width': 256, 'height': 256}
 segmentation_new_size = {'width': 512, 'height': 512}
-Config_classification = {"batch_size": 32, 'Save_Model': True, 'Epochs': 40, "TrainingPlot": True}
+Config_classification = {"batch_size": 32, 'Save_Model': True, 'Epochs': 2, "TrainingPlot": False}
 config_segmentation = {"batch_size": 16, 'Save_Model': False, 'Epochs': 30, "TrainingPlot": False,
                        "train_set_ratio": 0.85, "val_set_ratio": 0.15, "num_class": 2, "CHANNELS": 3}
 Mode = 'Training'
