@@ -170,6 +170,7 @@
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 
+
 % Blind text
 \usepackage{blindtext}
 
@@ -247,19 +248,36 @@ Imperial College London \\ Autumn 2023  \\ CCID: 00951537\\
 \medskip
 
 %% Abstract Here
-\blindtext
+\subsection*{Abstract}
+
+In this report I explore the effectiveness of Convolutional Neural Networks in identifying images
+that contain fires in the wild, with the aim of producing an algorithm that could potentially be incorporated 
+in early wildfire detection systems. I make use of the FLAME (Fire Luminoscity Airbourne-based Machine learning Evaluation)
+dataset \cite{FLAME_dataset} and build upon the \emph{Xception} Deep Convolutional Neural network proposed by Google \cite{Xception}.
+Key metrics such as binary accuracy, precision and recall are presented for training, validation, testing, and out of sample testing, the latter
+of which examines the performance of the model on images outside of the \emph{FLAME} dataset. For this purpose, I use the Fire Classification dataset
+available on Kaggle \cite{Kaggle_FIRE_Dataset}.
 
 \tableofcontents
 
 \section{Introduction}
-%% Problem Statement
-%% Outline approach. Link to course material
-%% Link to Github Repo
-\blindtext
 
-\section{Literary Review}
-%% Summarize key points from reference material
-\blindtext
+Wildfires are a pervasive issue across the globe today, causing millions of dollars in damage every year, loss
+in natuaral biodiversity in the affected areas, and significant loss and trauma to the affected communities. Recent examples of significant
+wildfires include the 2023 Canadian wildfire season \cite*{Milman_2023}, the 2019-20 Australian bushfires (nicknamed ``The Black Summer'') \cite{Aus_bushfires},
+and the fires in my home town of Cape Town this Christmas season \cite{Cape_Fires}. It is widely known that natural occuring fires are an integral
+part of many ecosystems, as they clear out dead organic matter that prevents living orgnisms from accessing vital nutrients \cite{fire_benefits}, alongside numerous other benefits \cite{bond2017fires}. 
+However multiple sources cite an increasing rate of occurence and degree of severity of global wildfires, past the point of biological sustainability \cite{}. This phenomenan is widely attributed
+to human intervention such as ... .
+
+The above justifies the need to develop novel methods for detecting wildfires, so that we may anticipate and manage the impact of wildfires in the best way possible. Upon reviewing multiple early-wildfires detection systems,
+\Citeauthor{UAV_Wildfire} found that the combined used of unmanned aerial vehicles (UAVs), mounted high resolution imagery and Deep Learning techniques provided the most promising
+results in terms navigability, versitility, speed and accuracy. \Citeauthor{FLAME_dataset} introduce a high-resulution image dataset composed of drone footage frames that were taken during a perscribed burning
+slash piles in Northern Arizona. In that same paper, the Google-Keras \emph{Xception} network was applied to create a binary classifier model for fire image detection. 
+
+The problem statement for this report is therefore as follows:
+
+
 
 \section{Image Dataset}
 
@@ -273,10 +291,16 @@ Imperial College London \\ Autumn 2023  \\ CCID: 00951537\\
 \section{Analysis}
 \blindtext
 
-\subsection{Description and Justification of Analysis Methods}
+\subsection{The Google-Keras Xception Network}
 \blindtext
 
-\subsection{Interpolation and Reflection of Results}
+\subsection{Training and Validation Results}
+\blindtext
+
+\subsection{Testing on Unseen Data}
+\blindtext
+
+\subsection{Testing on Out of Sample Data}
 \blindtext
 
 \section{Summary and Conclusion}
