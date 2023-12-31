@@ -75,10 +75,11 @@ psutil @ file:///D:/bld/psutil_1666155596250/work
 pyasn1 @ file:///Users/ktietz/demo/mc3/conda-bld/pyasn1_1629708007385/work
 pyasn1-modules==0.2.8
 pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+pydot @ file:///C:/b/abs_2c8n5fzxpn/croot/pydot_1671046280781/work
 Pygments @ file:///opt/conda/conda-bld/pygments_1644249106324/work
 PyJWT @ file:///C:/ci/pyjwt_1657529476747/work
 pyOpenSSL @ file:///C:/b/abs_552w85x1jz/croot/pyopenssl_1677607703691/work
-pyparsing @ file:///tmp/build/80754af9/pyparsing_1635766073266/work
+pyparsing @ file:///home/linux1/recipes/ci/pyparsing_1610983426697/work
 PyQt5==5.15.7
 PyQt5-sip @ file:///C:/Windows/Temp/abs_d7gmd2jg8i/croots/recipe/pyqt-split_1659273064801/work/pyqt_sip
 pyreadline==2.1
@@ -94,6 +95,7 @@ requests-oauthlib==1.3.0
 rsa @ file:///tmp/build/80754af9/rsa_1614366226499/work
 scikit-image @ file:///C:/ci/scikit-image_1648196140109/work
 scipy @ file:///C:/ci/scipy_1616703425152/work
+seaborn @ file:///C:/b/abs_68ltdkoyoo/croot/seaborn_1673479199997/work
 sip @ file:///C:/Windows/Temp/abs_b8fxd17m2u/croots/recipe/sip_1659012372737/work
 six @ file:///tmp/build/80754af9/six_1644875935023/work
 tensorboard @ file:///C:/Users/builder/adipietro/mc3/tf210/conda-bld/tensorboard_1669760968711/work/tensorboard-2.10.0-py3-none-any.whl
