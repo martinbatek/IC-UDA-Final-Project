@@ -1,0 +1,20 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Unstructured Data Analysis Final Project
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Martin
+    family-names: Batek
+    email: martin.batek22@imperial.ac.uk
+    affiliation: Imperial College London
+repository-code: 'https://github.com/martinbatek/IC-UDA-Final-Project.git'
+keywords:
+  - Deep Learning
+  - Computer Vision
+  - Fire Detection
+  - Convolutional Neural Networks
