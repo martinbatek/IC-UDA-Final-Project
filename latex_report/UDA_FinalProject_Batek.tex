@@ -99,6 +99,9 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
+% Wrap text around figures
+\usepackage{wrapfig}
+
 % The fancyhdr package let's us create nice headers.
 \usepackage{fancyhdr}
 
@@ -262,7 +265,7 @@ Imperial College London \\ Autumn 2023  \\ CCID: 00951537\\
 In this report I explore the effectiveness of Convolutional Neural Networks in identifying images
 that contain fires in the wild, with the aim of producing an algorithm that could potentially be incorporated 
 in early wildfire detection systems. I make use of the FLAME (Fire Luminoscity Airbourne-based Machine learning Evaluation)
-dataset \cite{FLAME_dataset} and build upon the \emph{Xception} Deep Convolutional Neural network proposed by Google \cite{Xception}.
+dataset \cite{FLAME_dataset} and build upon the \emph{Xception} Deep Convolutional Neural network proposed by Google \cite{Xception,Szegedy_2016_CVPR,Szegedy_Ioffe_Vanhoucke_Alemi_2017}.
 Key metrics such as binary accuracy, precision and recall are presented for training, validation, testing, and out of sample testing, the latter
 of which examines the performance of the model on images outside of the \emph{FLAME} dataset. For this purpose, I use the Fire Classification dataset
 available on Kaggle \cite{Kaggle_FIRE_Dataset}.
@@ -379,10 +382,47 @@ purpose that I evaluate the CNN model against out of sample images later on in t
 
 
 \section{Analysis}
-\blindtext
+In this section, I will introduce and justify the use of the Convolutional Neural Network architecture that I have chosen when training the
+classifier model for image fire detection. This is a simplified version of the Google-Keras Xception network adopted by \Citeauthor*{FLAME_dataset} in \citetitle{FLAME_dataset}. I will also discuss the model's accuracy, precision, recall and AUC statistics during training, validation and testing against 
+unseen in-sample and out-of-sample images.
 
 \subsection{The Google-Keras Xception Network}
-\blindtext
+The Xception Network is a deep Convolutional Neural Network (DCNN) developed by Google researchers \Citeauthor{Xception} \cite{Xception} and \Citeauthor{Szegedy_2016_CVPR} \cite{Szegedy_2016_CVPR,Szegedy_Ioffe_Vanhoucke_Alemi_2017}.
+It builds upon previous the previous Inception architecture by replacing the Inception modules therein with depth-wise separable convolutions.
+
+\pagebreak
+
+\begin{wrapfigure}{l}{0.45\textwidth}
+    \begin{center}
+        \includegraphics[width=0.43\textwidth]{../figures/Xception_network.png}
+    \end{center}
+    \caption{Xception Network graph, as used in \cite{FLAME_dataset}}
+\end{wrapfigure}
+
+For the perposes of this report, I make use of and build upon a simplified version of the Xception framework used in \cite{FLAME_dataset}, which is visualized
+in Figure 4. The network can be subdivided into input (top - blue), hidden (middle - red) and output (bottom - blue) blocks. The input block for the model used in \cite{FLAME_dataset}
+initially only included an input and a Rescaling layer for mappping the integer 0-255 range pixel values to float 0-1 values. I furhter incorporated a Random Data Augmentation
+layer (a layer sequentially containing Random Flip and Random rotation layers) in order to introduce some variability to the input data during training, so as to reduce model overfitting
+and improve general applicability. This was particularly necessary in the case of the FLAME dataset, which is comprised of video footage frames, and therefore has a high degree of internal similarity.
+(In plan language, two frames near the same point in a video are going to materialy look the same).
+
+\medskip
+
+The hidden block is comprised of several depth-wise separable convolutions, and a shortcut layer between the first and last convolution blocks. The first set of layers in the hidden block
+contains a 2 dimensional convolutional layer with 8 output channels, a 3x3 kernal and a stride of 2. The remainder if the hidden block contains separable 2D convolutional layers with similar settings.
+Each convolution block includes a Batch Normalization layer as well as a Rectified Linear Unit activation layer. The prior speeds up the training process by and reduces the likelihood of overfitting by
+decreasing the importance of the initial model weights, wheres the latter floors the pixel values to zero.
+
+\medskip
+
+Finally, the output layer summarizes the average pixel values in the 8 channels outputted from the hidden block into a single vector in $\mathbb{R}^8$, $\vec{x}$. For the purpose of binary classification,
+this is then converted to a probability score by use of the \emph{Sigmoid function}:
+
+\[
+    P(\text{label}=\text{fire}) = \frac{1}{1 + e^{-\vec{\beta} \cdot \vec{x}}}
+\] 
+
+where $\vec{\beta}$ is the weight vector for the last layer in the network. 
 
 \subsection{Training and Validation Results}
 \blindtext
