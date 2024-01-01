@@ -441,10 +441,48 @@ image.
 
 
 \subsection{Training and Validation Results}
-\blindtext
+As in \cite{FLAME_dataset}, the model was written using the \verb!tensorflow! Python package, and
+was trained with the objective of minimizing the \emph{binary cross-entropy} loss function, which is
+suited for binary classification:
+
+\[
+    \mathcal{L}(y,\hat{y}) = -\frac{1}{N} \sum_{i=1}^{N} y_i \log (p(\hat{y}_i)) + (1 - y_i) \log (1- p(\hat{y}_i))    
+\]
+
+The Adam optimizer is used to minimize the loss function and find the optimal model weights. Please see the DCNN Model training section
+in \verb!scripts/UDA_FinalProject_Batek.ipynb! for the training implementation. The code is compatible with
+Python version 3.7.12, Tensorflow version 2.3 and Keras version 2.4. For a full list of dependancies, I have exported
+a requirements.txt, environment.yml and spec-file.txt to the root of the Github Repositry \cite{Batek_Unstructured_Data_Analysis}.
+As I currently do not have access to any computational resources besides my Microsoft Surface Laptop 4, training was computed via
+CPU only. Due to this limitation, I reduced the number of epochs for training to 20, as opposed to 40 in \cite{FLAME_dataset}. The training
+procedure took approximately 5 hours and 35 minutes to complete using all of the images in the classification Training folder (item 7 in the IEEE Dataport). 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{../figures/training_loss_accuracy.png}
+    \caption{Loss and Accuracy during training and against 15\% holdout validation}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{../figures/training_metrics.png}
+    \caption{Accuracy, AUC, Precision, Recall, Binary Accuracy for Training and vs Validation}
+\end{figure}
+
+\medskip
+
+Figure 6 shows the training results in terms of Training and Validation loss and accuracy per epoch.
+For both Binary Cross Entropy Loss and Binary Accuracy, we see a realitively steady improvement for
+each subsequent epoch, in training as well as the validation hold-out comparisons. This shows little
+to no evidence of model overfitting, as that would be indicated by a decrease in training loss conciding
+with an increase in validation loss (and vice versa for accuracy). Figure 7 reveals the same trend in
+terms of AUC, Precision and recall.
 
 \subsection{Testing on Unseen Data}
-\blindtext
+For the next step, I evaluate the model against the FLAME Dataset Classification Test images (item 8). 
+Figure 8 shows the result.
+
+
 
 \subsection{Testing on Out of Sample Data}
 \blindtext
