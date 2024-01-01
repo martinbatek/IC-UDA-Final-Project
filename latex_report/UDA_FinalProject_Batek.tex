@@ -170,6 +170,15 @@
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 
+% For drawing text boxes
+\usepackage[many]{tcolorbox}
+
+\newtcolorbox{boxA}{
+    fontupper = \bf,
+    boxrule = 1.5pt,
+    colframe = black % frame color
+}
+
 
 % Blind text
 \usepackage{blindtext}
@@ -258,9 +267,13 @@ Key metrics such as binary accuracy, precision and recall are presented for trai
 of which examines the performance of the model on images outside of the \emph{FLAME} dataset. For this purpose, I use the Fire Classification dataset
 available on Kaggle \cite{Kaggle_FIRE_Dataset}.
 
+\medskip
+
+All code and a 100MB subset of the FLAME Dataset have been uploaded to the following Github Repositry: \citeurl{Batek_Unstructured_Data_Analysis}
+
 \tableofcontents
 
-\section{Introduction}
+\section{Introduction and Problem Statement}
 
 Wildfires are a pervasive issue across the globe today, causing millions of dollars in damage every year, loss
 in natuaral biodiversity in the affected areas, and significant loss and trauma to the affected communities. Recent examples of significant
@@ -277,16 +290,49 @@ slash piles in Northern Arizona. In that same paper, the Google-Keras \emph{Xcep
 
 The problem statement for this report is therefore as follows:
 
+\begin{boxA}
+    \underline{Problem Statement:}
+\begin{itemize}
+    \item Train a Convolutional Neural Network classifier for fire image classification.
+    \item Investigate the effect of the preprocessing, hidden and output layers of the trained CNN model on an example image.
+    \item Evaluate the Accuracy, Precision and Recall of the model on Validation, Testing and Out-of-Sample images.
+\end{itemize}
+\end{boxA}
 
 
 \section{Image Dataset}
 
 \subsection{Data Selection}
 %% Introduce the criteria by which the datasets were chosen
-\blindtext
+Multiple datasets were considered for the purposes of this report, from sources such as Kaggle, and other publicaly available portals. Besides the stated
+criteria for this project (complexity and originality), I also aimed to use a dataset that is suitable given the findings in \citetitle{UAV_Wildfire}, wherein \Citeauthor{UAV_Wildfire} argue that UAV-sensor
+technology is more suitable for autonomous fire detection systems in terms of cost, accuracy and practicality than alternatives such as satellite imagery or stationery platforms.
+The ideal dataset would therefore include images taken from the perspective of UAVs.
+
+To this end the FLAME Dataset produced by \Citeauthor{FLAME_dataset} addresses these criteria explicitly. The dataset includes drone imagery taken of the perscribed burning
+of slash piles in the forests of Arizona during January 2020, during which time the weather conditions were generally cloudy with an average temparature of -6 $^{\circ}$C. The following Exploratory Data Anylisis includes visualizations of a few example images in the dataset.
+The full published dataset includes video footage, images, a variety of specturms used (including the normal RGB, fusion, white-hot and green-hot palettes), as well as images and masks for fire image segmentation (identifying the fire pixels in an image, thereby identifying where
+the fire is situated from the perspective of the UAV). For the purposes of this report, I use only the \textbf{Training, Validation and Test} classifiction images (all in the normal RGB spectrum), namely items 7) and 8)
+in the following IEEE-Dataport link: \url{https://ieee-dataport.org/open-access/flame-dataset-aerial-imagery-pile-burn-detection-using-drones-uavs}.
+
+The classification dataset above is 1.46 GB in size. For the purpose of submission, I have produced a 100MB subset of this dataset using random sampling, and uploaded it to the the aforementioned Github repository, under \verb!data/FLAME_dataset_subset!. However,
+note that the model and results described in the following report were compiled on the basis of the entire set of images.
 
 \subsection{Exploratory Data Analysis}
-\blindtext
+In this section, I aim to visualise the data downloaded from points 7) and 8) on the aforementioned IEEE-Dataport. As a first step, I visualise the directory
+heirarchy structure in \verb!scripts/UDA_FinalProject_Batek.ipynb!:
+
+\begin{figure}[h]
+    \includegraphics{../figures/FLAME_dataset_structure.png}
+    \caption{File structure of the Classification images in the FLAME Dataset}
+\end{figure}
+
+Figure 1 shows that the dataset contains 47992 images, 8617 (18\%) of which are in
+the test set with the remaining 82\% in the training\//validation set. Examining the file counts clearly shows that there is a significant class imbalance 
+between Fire and Non-Fire images, and that the Fire Class is overrepresented in the training set relative to the Test set. This imabalance will likely
+influence model specificity and recall later on.
+
+
 
 \section{Analysis}
 \blindtext
