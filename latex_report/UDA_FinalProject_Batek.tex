@@ -401,7 +401,7 @@ It builds upon previous the previous Inception architecture by replacing the Inc
 
 For the perposes of this report, I make use of and build upon a simplified version of the Xception framework used in \cite{FLAME_dataset}, which is visualized
 in Figure 4. The network can be subdivided into input (top - blue), hidden (middle - red) and output (bottom - blue) blocks. The input block for the model used in \cite{FLAME_dataset}
-initially only included an input and a Rescaling layer for mappping the integer 0-255 range pixel values to float 0-1 values. I furhter incorporated a Random Data Augmentation
+initially only included an input and a Rescaling layer for mappping the integer 0-255 range pixel values to float 0-1 values. I further incorporated a Random Data Augmentation
 layer (a layer sequentially containing Random Flip and Random rotation layers) in order to introduce some variability to the input data during training, so as to reduce model overfitting
 and improve general applicability. This was particularly necessary in the case of the FLAME dataset, which is comprised of video footage frames, and therefore has a high degree of internal similarity.
 (In plan language, two frames near the same point in a video are going to materialy look the same).
@@ -423,6 +423,22 @@ this is then converted to a probability score by use of the \emph{Sigmoid functi
 \] 
 
 where $\vec{\beta}$ is the weight vector for the last layer in the network. 
+
+Figure 5 demonstrates the result of each distinct block in the model. Firstly, 
+we see how the input layer augments the original input image by randomly flipping and rotating
+it. We then see how each convolution block (2D convolution, batchnormalization and ReLU activation)
+incrementally segments the image, and places emphases on the pixels that contain the fire. The Global
+Average Pooling layer then summarizes the average pixel values per channel, wherein the
+channels that emphasis the fire more directly have a higher score. Finally, the Global Average
+Pooling vector is passed through the Sigmoid function to produce a final probability score for the
+image.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{../figures/model_layers_example/model_layers.png}
+    \caption{Model layer convolutions applied to an example image}
+\end{figure}
+
 
 \subsection{Training and Validation Results}
 \blindtext
