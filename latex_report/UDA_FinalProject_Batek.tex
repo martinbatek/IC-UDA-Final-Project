@@ -309,11 +309,15 @@ criteria for this project (complexity and originality), I also aimed to use a da
 technology is more suitable for autonomous fire detection systems in terms of cost, accuracy and practicality than alternatives such as satellite imagery or stationery platforms.
 The ideal dataset would therefore include images taken from the perspective of UAVs.
 
+\medskip
+
 To this end the FLAME Dataset produced by \Citeauthor{FLAME_dataset} addresses these criteria explicitly. The dataset includes drone imagery taken of the perscribed burning
 of slash piles in the forests of Arizona during January 2020, during which time the weather conditions were generally cloudy with an average temparature of -6 $^{\circ}$C. The following Exploratory Data Anylisis includes visualizations of a few example images in the dataset.
 The full published dataset includes video footage, images, a variety of specturms used (including the normal RGB, fusion, white-hot and green-hot palettes), as well as images and masks for fire image segmentation (identifying the fire pixels in an image, thereby identifying where
 the fire is situated from the perspective of the UAV). For the purposes of this report, I use only the \textbf{Training, Validation and Test} classifiction images (all in the normal RGB spectrum), namely items 7) and 8)
 in the following IEEE-Dataport link: \url{https://ieee-dataport.org/open-access/flame-dataset-aerial-imagery-pile-burn-detection-using-drones-uavs}.
+
+\medskip
 
 The classification dataset above is 1.46 GB in size. For the purpose of submission, I have produced a 100MB subset of this dataset using random sampling, and uploaded it to the the aforementioned Github repository, under \verb!data/FLAME_dataset_subset!. However,
 note that the model and results described in the following report were compiled on the basis of the entire set of images.
@@ -331,6 +335,46 @@ Figure 1 shows that the dataset contains 47992 images, 8617 (18\%) of which are 
 the test set with the remaining 82\% in the training\//validation set. Examining the file counts clearly shows that there is a significant class imbalance 
 between Fire and Non-Fire images, and that the Fire Class is overrepresented in the training set relative to the Test set. This imabalance will likely
 influence model specificity and recall later on.
+
+\medskip
+
+As a next step, I investigate the image dimensions and the pixel values in the training set:
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/flame_dataset_image_dimensions.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering 
+        \includegraphics[width=\textwidth]{../figures/pixel_ranges.png}
+    \end{subfigure}
+    \caption{Training set image dimensions in pixels (left), and distribution of minimum and maximum pixel values (right).}
+\end{figure}
+
+It is shown in Figure 2 above that all of the images in the dataset have been rescaled to 254x254 pixels (left), whereas the pixel
+ranges vary between 0 to 255 (right). This is taken account of in the preprocessing layers of the CNN model later on.
+
+\medskip
+
+As a final step in the Exploratory Data Analysis, I randomly choose 1 image for each set\//class combination
+and display them:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics{../figures/example_images.png}
+    \caption{Four images from the FLAME dataset}
+\end{figure}
+
+The images in Figure 3 appear as expected given that they were taken in Arizona in the winter month of January.
+The weather at the time was generally cloudy, and despite the fact that most of the images do not show any portion of
+the sky (the drone mounted cameras tend to be pointed at the ground), the affect of the weather on the lighting is apparent
+in the images. The ground in the images tends to be covered in snow, with the crucial exceptions of the fires and under the trees.
+This all raises the question as to whether a CNN model trained on these images would perform equally well in identifying fires in images
+taken in different environments and weather conditions (such as during the summer, when the risk of wildfires is the highest). It is for this
+purpose that I evaluate the CNN model against out of sample images later on in the report.
 
 
 
