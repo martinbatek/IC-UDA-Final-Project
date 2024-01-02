@@ -31,6 +31,8 @@ The project was compiled exclusively on my Miscrosoft Surface Laptop 4, which ha
 
 ![](./figures/laptop_specifications.png)
 
+Throughout the project, I relied on CPU computing only, as I did not have access to GPU resources.
+
 ### Dependencies
 Please consult the `environment.yml`, `requirement.txt` and `spec-file.txt` for a specific list detailing the Python environment dependencies. The key dependencies are:
 - Python v3.7.12
@@ -49,4 +51,10 @@ after creating and activating a virtual environment with `virtualenv`
 
 ## Instructions
 
-The Python Notebook containing the code for the assignment is located in `~/scripts/UDA_FinalProject_Batek.ipynb`
+The Python Notebook containing the code for the assignment is located in `~/scripts/UDA_FinalProject_Batek.ipynb`. This notebook was written so that each section separated by markdown headings can be run independently. However, it can also be run sequentially all at once.
+
+Before doing so, be sure to chance the dataset `root_path` variables throughout the notebook:
+
+![](./figures/dataset_path_example.png)
+
+Runtime for the model training section of the script was __5 hours and 35 minutes__ with the hardware specifications above.
