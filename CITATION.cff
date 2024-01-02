@@ -4,9 +4,9 @@
 cff-version: 1.2.0
 title: Unstructured Data Analysis Final Project
 message: >-
-  If you use this software, please cite it using the
+  If you use this report, please cite it using the
   metadata from this file.
-type: software
+type: misc
 authors:
   - given-names: Martin
     family-names: Batek
@@ -18,3 +18,4 @@ keywords:
   - Computer Vision
   - Fire Detection
   - Convolutional Neural Networks
+date-released: 2024-01-02
