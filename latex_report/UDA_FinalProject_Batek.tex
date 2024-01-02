@@ -114,7 +114,7 @@
 \usepackage{bm}
 
 % Referencing
-\usepackage{biblatex}
+\usepackage[style=ieee]{biblatex}
 \addbibresource{../reference_material/references.bib}
 
 % For csv file display
@@ -283,8 +283,8 @@ in natuaral biodiversity in the affected areas, and significant loss and trauma 
 wildfires include the 2023 Canadian wildfire season \cite*{Milman_2023}, the 2019-20 Australian bushfires (nicknamed ``The Black Summer'') \cite{Aus_bushfires},
 and the fires in my home town of Cape Town this Christmas season \cite{Cape_Fires}. It is widely known that natural occuring fires are an integral
 part of many ecosystems, as they clear out dead organic matter that prevents living orgnisms from accessing vital nutrients \cite{fire_benefits}, alongside numerous other benefits \cite{bond2017fires}. 
-However multiple sources cite an increasing rate of occurence and degree of severity of global wildfires, past the point of biological sustainability \cite{}. This phenomenan is widely attributed
-to human intervention such as ... .
+However multiple sources cite an increasing rate of occurence and degree of severity of global wildfires, past the point of biological sustainability \cite{Lasslop_2017,boegelsack2018critical,jones2020climate}. This phenomenan is widely attributed
+to human intervention such as urbanization, agricultural practices and human made climate change.
 
 The above justifies the need to develop novel methods for detecting wildfires, so that we may anticipate and manage the impact of wildfires in the best way possible. Upon reviewing multiple early-wildfires detection systems,
 \Citeauthor{UAV_Wildfire} found that the combined used of unmanned aerial vehicles (UAVs), mounted high resolution imagery and Deep Learning techniques provided the most promising
@@ -332,9 +332,10 @@ heirarchy structure in \verb!scripts/UDA_FinalProject_Batek.ipynb!:
 \begin{figure}[h]
     \includegraphics{../figures/FLAME_dataset_structure.png}
     \caption{File structure of the Classification images in the FLAME Dataset}
+    \label{fig:FLAME_dataset_structure}
 \end{figure}
 
-Figure 1 shows that the dataset contains 47992 images, 8617 (18\%) of which are in
+Figure \ref{fig:FLAME_dataset_structure} shows that the dataset contains 47992 images, 8617 (18\%) of which are in
 the test set with the remaining 82\% in the training\//validation set. Examining the file counts clearly shows that there is a significant class imbalance 
 between Fire and Non-Fire images, and that the Fire Class is overrepresented in the training set relative to the Test set. This imabalance will likely
 influence model specificity and recall later on.
@@ -355,9 +356,10 @@ As a next step, I investigate the image dimensions and the pixel values in the t
         \includegraphics[width=\textwidth]{../figures/pixel_ranges.png}
     \end{subfigure}
     \caption{Training set image dimensions in pixels (left), and distribution of minimum and maximum pixel values (right).}
+    \label{fig:pixel_dims_values}
 \end{figure}
 
-It is shown in Figure 2 above that all of the images in the dataset have been rescaled to 254x254 pixels (left), whereas the pixel
+It is shown in Figure \ref{fig:pixel_dims_values} above that all of the images in the dataset have been rescaled to 254x254 pixels (left), whereas the pixel
 ranges vary between 0 to 255 (right). This is taken account of in the preprocessing layers of the CNN model later on.
 
 \medskip
@@ -369,9 +371,10 @@ and display them:
     \centering
     \includegraphics{../figures/example_images.png}
     \caption{Four images from the FLAME dataset}
+    \label{fig:FLAME_examples}
 \end{figure}
 
-The images in Figure 3 appear as expected given that they were taken in Arizona in the winter month of January.
+The images in Figure \ref{fig:FLAME_examples} appear as expected given that they were taken in Arizona in the winter month of January.
 The weather at the time was generally cloudy, and despite the fact that most of the images do not show any portion of
 the sky (the drone mounted cameras tend to be pointed at the ground), the affect of the weather on the lighting is apparent
 in the images. The ground in the images tends to be covered in snow, with the crucial exceptions of the fires and under the trees.
