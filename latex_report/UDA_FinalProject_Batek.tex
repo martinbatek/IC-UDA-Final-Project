@@ -575,7 +575,14 @@ be a key detractor to any practical model deployment, and indicates that the mod
 outside of the very specific weather and environment conditions as with the FLAME dataset.
 
 \section{Summary and Conclusion}
-\blindtext
+In this report, I have made use of the Xception Network introduced by \Citeauthor{Xception} and \Citeauthor{Szegedy_2016_CVPR} to create a 
+Image Fire classification model for the FLAME dataset produced by \Citeauthor{FLAME_dataset}. The epoch-wise Training and Validation Accuracy 
+and Cross Entropy Loss showed little to no signs of overfitting.I demonstrated the impact of the model's preprocessing, hidden and output layers
+in the case of an example image in order to get a better sense of how the model identifies regions on the image that are germain to the classification
+task. The model was evaluated on unseen test date from the FLAME dataset, and it was found that although overall accuracy was low (55\%), the model
+could correctly identify images with fires 82\% of the time. Finally, the model was evaluated against a dataset with differnt weather and environmental conditions.
+In this case, Recall was only 48\% and Precision was 76\%, indicating that that the model may need to be trained on a wider varienty of
+images before it can be practically deployed in an early wildfire detection system.
 
 \printbibliography
 
