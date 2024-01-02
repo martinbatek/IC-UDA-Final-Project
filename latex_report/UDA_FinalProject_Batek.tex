@@ -397,10 +397,11 @@ It builds upon previous the previous Inception architecture by replacing the Inc
         \includegraphics[width=0.43\textwidth]{../figures/Xception_network.png}
     \end{center}
     \caption{Xception Network graph, as used in \cite{FLAME_dataset}}
+    \label{fig:Xception}
 \end{wrapfigure}
 
-For the perposes of this report, I make use of and build upon a simplified version of the Xception framework used in \cite{FLAME_dataset}, which is visualized
-in Figure 4. The network can be subdivided into input (top - blue), hidden (middle - red) and output (bottom - blue) blocks. The input block for the model used in \cite{FLAME_dataset}
+For the purposes of this report, I make use of and build upon a simplified version of the Xception framework used in \cite{FLAME_dataset}, which is visualized
+in Figure \ref{fig:Xception}. The network can be subdivided into input (top - blue), hidden (middle - red) and output (bottom - blue) blocks. The input block for the model used in \cite{FLAME_dataset}
 initially only included an input and a Rescaling layer for mappping the integer 0-255 range pixel values to float 0-1 values. I further incorporated a Random Data Augmentation
 layer (a layer sequentially containing Random Flip and Random rotation layers) in order to introduce some variability to the input data during training, so as to reduce model overfitting
 and improve general applicability. This was particularly necessary in the case of the FLAME dataset, which is comprised of video footage frames, and therefore has a high degree of internal similarity.
@@ -479,8 +480,12 @@ with an increase in validation loss (and vice versa for accuracy). Figure 7 reve
 terms of AUC, Precision and recall.
 
 \subsection{Testing on Unseen Data}
-For the next step, I evaluate the model against the FLAME Dataset Classification Test images (item 8). 
-Figure 8 shows the result.
+For the next step, I evaluate the model against the FLAME Dataset Classification Test images (item 8 in \cite{FLAME_IEEE}). 
+Figure \ref{fig:TestResult} shows the result. From this figure we can see that the training set class imbalance that was flagged
+earlier in the EDA section has indeed resulted in a model that is more prone to assigning a higher likelihood that a given contains a
+fire. The model correctly identifies 82\% of images that truely contain a fire (see recall on the right), but this comes at the cost of
+a high number False Positives. The 3252 identified dominate the confusion matrix on the left, and the precision score of only 47\%
+is the prime reason for the low Binary Accuracy of 55\%, in comparison to the Validation Binary Accuracy of 97\% achieved during training.
 
 \begin{figure}[h]
     \centering
@@ -494,7 +499,18 @@ Figure 8 shows the result.
         \includegraphics[width=\textwidth]{../figures/Test_results.png}
     \end{subfigure}
     \caption{Left: Test Confusion Matrix. Right: Test Results}
+    \label{fig:TestResult}
 \end{figure}
+
+\medskip
+
+The most straightforward methods of remediating the issue posed by class imbalance are either to introduce an \emph{initial bias} at model
+initiation or to introduce \emph{class weights} for model training \cite{TF_Imbalanced_data_tutorial}. The prior effectively teaches the model to
+initialize the training weights that reflects the overall $P(\text{label}=\text{Fire})$ in the training set, whereas the latter would assign
+a higher weight to the Loss calculated for ``No Fire'' samples during training and optimization, effectively forcing the model to ``pay more attention''
+to fitting this class with higher accuracy. The third remediatory adjustment that can be made is to increase the threshold for classifying the Fire images.
+In Figure \ref{fig:TestResult}, it is assumed that any image with a score exceeding 0.5 is classified as Fire by the model, and the number
+of False Positives can be reduced by increasing this threshold.
 
 \subsection{Testing on Out of Sample Data}
 \blindtext
@@ -502,6 +518,7 @@ Figure 8 shows the result.
 \section{Summary and Conclusion}
 \blindtext
 
+\pagebreak
 \printbibliography
 
 \end{document}
