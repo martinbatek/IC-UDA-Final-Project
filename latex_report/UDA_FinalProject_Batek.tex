@@ -317,8 +317,8 @@ The ideal dataset would therefore include images taken from the perspective of U
 To this end the FLAME Dataset produced by \Citeauthor{FLAME_dataset} addresses these criteria explicitly. The dataset includes drone imagery taken of the perscribed burning
 of slash piles in the forests of Arizona during January 2020, during which time the weather conditions were generally cloudy with an average temparature of -6 $^{\circ}$C. The following Exploratory Data Anylisis includes visualizations of a few example images in the dataset.
 The full published dataset includes video footage, images, a variety of specturms used (including the normal RGB, fusion, white-hot and green-hot palettes), as well as images and masks for fire image segmentation (identifying the fire pixels in an image, thereby identifying where
-the fire is situated from the perspective of the UAV). For the purposes of this report, I use only the \textbf{Training, Validation and Test} classifiction images (all in the normal RGB spectrum), namely items 7) and 8)
-in the following IEEE-Dataport link: \url{https://ieee-dataport.org/open-access/flame-dataset-aerial-imagery-pile-burn-detection-using-drones-uavs}.
+the fire is situated from the perspective of the UAV). For the purposes of this report, I use only the \textbf{Training, Validation and Test} classifiction images (all in the normal RGB spectrum), namely items 7) and 8) from \cite{FLAME_IEEE}. Both of these image sets are pre-labelled as either ``Fire'' or ``No-Fire'',
+depending on whether there is a fire within the frame.
 
 \medskip
 
@@ -460,8 +460,9 @@ procedure took approximately 5 hours and 35 minutes to complete using all of the
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{../figures/training_loss_accuracy.png}
+    \includegraphics[width=0.8\textwidth]{../figures/training_loss_accuracy.png}
     \caption{Loss and Accuracy during training and against 15\% holdout validation}
+    \label{fig:train_loss_accuracy}
 \end{figure}
 
 \begin{figure}[h]
@@ -472,7 +473,7 @@ procedure took approximately 5 hours and 35 minutes to complete using all of the
 
 \medskip
 
-Figure 6 shows the training results in terms of Training and Validation loss and accuracy per epoch.
+Figure \ref{fig:train_loss_accuracy} shows the training results in terms of Training and Validation loss and accuracy per epoch.
 For both Binary Cross Entropy Loss and Binary Accuracy, we see a realitively steady improvement for
 each subsequent epoch, in training as well as the validation hold-out comparisons. This shows little
 to no evidence of model overfitting, as that would be indicated by a decrease in training loss conciding
@@ -512,13 +513,70 @@ to fitting this class with higher accuracy. The third remediatory adjustment tha
 In Figure \ref{fig:TestResult}, it is assumed that any image with a score exceeding 0.5 is classified as Fire by the model, and the number
 of False Positives can be reduced by increasing this threshold.
 
+\medskip
+
+Note that none of the methods mentioned above increase the amount of information accessed during training. They merely change how the existing information is used to optimize the model. 
+As such, each method above will most likely involve trading off between Precision and Recall. It is therefore prudent to consider the relative
+cost of False Positives in comparison to False Negatives before making these adjustments. One could argue that in the case of early wildfire detection, the cost
+associated with each False Negative (the damage caused by an undetected wildfire) vastly exceeds that of a False Positive (the time and resources for manually investigating the potenential fire).
+Nevertheless, in most practical applications there would be a minimum acceptable Precision score for a viable model, and the model should therefore be tuned accordingly.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics{../figures/false_positive_examples.png}
+    \caption{Four Test set images that were labelled as ``No Fire'' and were classified as ``Fire''}
+    \label{fig:false_positives}
+\end{figure}
+
+\medskip
+
+Figure \ref{fig:false_positives} shows four images that were classified as ``Fire'' by the model despite being labelled as ``No Fire''.
+The score for the top-left image is very close to the 0.5 threshold, so the classification is marginal. The two images on the right-hand side
+of the figure do not seem to contain fires, but it does appear that they at least contain smoke from nearby fires. The lower-left image seems to
+be a case of mislabelling - there appears to be a fire behind the tree near the right edge of the image.
+
 \subsection{Testing on Out of Sample Data}
-\blindtext
+In this next section, I evaluate the model against out-of-sample data - images that were not included in the FLAME dataset used for training. I particularly
+wanted to investigate whether images taken during different weather conditions (summer as opposed to winter) or environment (urban or grassland as opposed to prediminantly forest)
+would have a confounding impact on model performance. In this section, I make use of the FIRE dataset, created by \Citeauthor{Kaggle_FIRE_Dataset} for the NASA
+Space Apps Challenge in 2018.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics{../figures/fire_dataset_example.png}
+    \caption{Example images taken from the Kaggle Fire dataset}
+    \label{fig:fire_example}
+\end{figure}
+
+Figure \ref{fig:fire_example} displays 4 example images from the dataset along with labels. Unlike the FLAME dataset, these images are taken
+in a variety of different weather conditions (clear weather to rainy) and some include urban elements such as roads and buildings. These images are
+generally taken from the perspective of someone observing the subject from the ground, as opposed to the UAV perspective.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/oos_confusion_matrix.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/oos_results.png}
+    \end{subfigure}
+    \caption{Out-of-Sample confusion matrix (left) and evaluation results (right)}
+    \label{fig:oos_results}
+\end{figure}
+
+Figure \ref{fig:oos_results} displays the evaluation results against the Kaggle Fire Dataset. In comparison the Test set
+in the previous section, the model scored higher in terms of Binary Accuracy (83\%) and Precision (76\%). Relatively speaking,
+False positives do not pose as much of an issue in this dataset in comparison to the FLAME dataset. However, the model is significantly 
+weaker in terms of being able to correctly identify images with fires, given the lower Recall score of 49\%. This would 
+be a key detractor to any practical model deployment, and indicates that the model may not be suited for use in Fire Detection
+outside of the very specific weather and environment conditions as with the FLAME dataset.
 
 \section{Summary and Conclusion}
 \blindtext
 
-\pagebreak
 \printbibliography
 
 \end{document}
