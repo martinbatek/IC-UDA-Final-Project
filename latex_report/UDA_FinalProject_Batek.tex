@@ -469,6 +469,7 @@ procedure took approximately 5 hours and 35 minutes to complete using all of the
     \centering
     \includegraphics[width=\textwidth]{../figures/training_metrics.png}
     \caption{Accuracy, AUC, Precision, Recall, Binary Accuracy for Training and vs Validation}
+    \label{fig:train_metrics}
 \end{figure}
 
 \medskip
@@ -502,6 +503,11 @@ is the prime reason for the low Binary Accuracy of 55\%, in comparison to the Va
     \caption{Left: Test Confusion Matrix. Right: Test Results}
     \label{fig:TestResult}
 \end{figure}
+
+In \cite{FLAME_dataset}, \Citeauthor*{FLAME_dataset} report similar issues in terms of false positives, however with a significantly higher
+test set Accuracy score of 76.23\%. The reason for this could be that they trained the model for another 10 epochs (20 in total).
+The training metrics shown in figures \ref{fig:train_loss_accuracy} and \ref{fig:train_metrics} indicate that more epochs could be
+introduced to the model fitting process without an unacceptable level of overfitting.
 
 \medskip
 
